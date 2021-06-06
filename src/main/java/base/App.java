@@ -1,9 +1,11 @@
 package base;
+import java.time.Year; //int year = Year.now().getValue();
+//import java.util.Calendar; //int year = Calendar.getInstance().get(Calendar.YEAR);  alternative
+import java.util.Scanner;
 /*
  *  UCF COP3330 Summer 2021 Assignment 1 Solution
  *  Copyright 2021 Scott Matson
  */
-
 /*
 Exercise 6 - Retirement Calculator
 
@@ -29,4 +31,22 @@ Challenge
 
  */
 public class App {
+    public static void main(String[] args) {
+        Scanner ui = new Scanner(System.in);
+
+        System.out.print("What is your current age? ");
+        int age = ui.nextInt();
+        System.out.print("At what age would you like to retire? ");
+
+        int retire = ui.nextInt();
+        int time_left = retire - age;
+
+        System.out.println("You have " + time_left + " years left until you can retire.");
+
+        //int year = Calendar.getInstance().get(Calendar.YEAR);
+        int year = Year.now().getValue();
+        int retire_year = year + time_left;
+
+        System.out.println("It's " + year + ", so you can retire in " + retire_year + ".");
+    }
 }
